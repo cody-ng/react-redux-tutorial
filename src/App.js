@@ -2,7 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import HomePage from "./tutorial/homePage";
-import Header from "./components/common/header";
+import { Header, AboutPage, PageNotFound } from "./components/common";
+import { HomePage as MyReduxHomePage } from "./components/my-redux";
 
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        {/* <Route path="/about" component={AboutPage} />
-        <Route path="/courses" component={CoursesPage} />
-        <Route component={PageNotFound} /> */}
+        <Route path="/about" component={AboutPage} />
+        <Route path="/my-redux" component={MyReduxHomePage} />
+        <Route component={PageNotFound} />
       </Switch>
     </div>
   );

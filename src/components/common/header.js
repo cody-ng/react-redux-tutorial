@@ -12,6 +12,10 @@ const Header = () => {
       <NavLink to="/my-redux" activeStyle={activeStyle}>
         My Redux
       </NavLink>
+      {" | "}
+      <NavLink to="/about" activeStyle={activeStyle}>
+        About
+      </NavLink>
     </nav>
   );
 };
