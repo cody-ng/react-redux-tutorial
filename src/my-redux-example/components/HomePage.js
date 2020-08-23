@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 
 import CoursesPage from "./CoursesPage";
-import configureStore from "../../redux/configureStore";
+import configureStore from "../configureStore";
 
 const store = configureStore();
 
