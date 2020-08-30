@@ -1,11 +1,12 @@
 import React from "react";
-import TestHooksPage from "./TestHooksPage";
+import HookLayout from "./HookLayout";
+import { CoursesProvider } from "../hooks/CoursesContext";
 
 const HomePage = () => {
   return (
-    // <Provider store={store}>
-    <TestHooksPage />
-    // </Provider>
+    <CoursesProvider>
+      <HookLayout />
+    </CoursesProvider>
   );
 };
 
