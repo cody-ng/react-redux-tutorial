@@ -1,5 +1,13 @@
 import React, { useState } from "react";
+import SweetAlert from "react-bootstrap-sweetalert";
+
 import { useAddCourse } from "../hooks/CourseAPIs";
+import {
+  useCoursesContext,
+  useCourseDispatchContext,
+} from "../hooks/CoursesContext";
+
+import { courses_error } from "../reducers/ActionCreators";
 
 const AddCoursePage = () => {
   let initialState = {
@@ -7,6 +15,8 @@ const AddCoursePage = () => {
     title: "",
   };
 
+  const coursesContext = useCoursesContext();
+  const dispatch = useCourseDispatchContext();
   const [course, setCourse] = useState(initialState);
   const [courseId, setCourseId] = useState(0);
   const addCourse = useAddCourse();
@@ -32,14 +42,33 @@ const AddCoursePage = () => {
     addCourse(newCourse);
   };
 
-  //console.log("AddCoursePage");
-  return (
-    <form onSubmit={useHandleSubmit}>
-      <h3>Add a Course</h3>
-      <input type="text" onChange={handleChange} value={course.title} />
+  const onErrorConfirm = () => {
+    dispatch(courses_error(null));
+  };
 
-      <input type="submit" value="Save" />
-    </form>
+  console.log("AddCoursePage - " + coursesContext.error);
+  return (
+    <>
+      <form onSubmit={useHandleSubmit}>
+        <h3>Add a Course</h3>
+        <input type="text" onChange={handleChange} value={course.title} />
+
+        <input type="submit" value="Save" />
+      </form>
+      {coursesContext.error && (
+        <SweetAlert
+          warning
+          //confirmBtnText="Yes, delete it!"
+          // confirmBtnBsStyle="danger"
+          // title={coursesContext.error}
+          title="this is a test"
+          onConfirm={onErrorConfirm}
+          // showCancel
+          // onCancel={this.onCancel}
+          //focusCancelBtn
+        ></SweetAlert>
+      )}
+    </>
   );
 };
 

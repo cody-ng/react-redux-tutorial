@@ -4,6 +4,8 @@ import AddCoursePage from "./AddCoursePage";
 import CoursesList from "./CoursesList";
 
 const HookLayout = () => {
+  console.log("HookLayour");
+
   return (
     <Container fluid="md">
       <Row>
