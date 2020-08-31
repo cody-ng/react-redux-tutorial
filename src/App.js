@@ -6,6 +6,16 @@ import { Header, AboutPage, PageNotFound } from "./components/common";
 import { HomePage as MyReduxHomePage } from "./my-redux-example/components";
 import { HomePage as HooksHomePage } from "./hooks-example/components";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCheckSquare,
+  faCoffee,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faCheckSquare, faCoffee, faSpinner);
+
 function App() {
   return (
     <div className="container-fluid">

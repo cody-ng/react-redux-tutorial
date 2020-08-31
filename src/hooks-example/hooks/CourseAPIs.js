@@ -14,7 +14,6 @@ export const useAddCourse = () => {
       // simulate a server API call
       setTimeout(() => {
         dispatch(courses_added(course));
-        dispatch(courses_loading(false));
       }, 1000);
     },
     [dispatch]

@@ -2,7 +2,7 @@ import {
   COURSES_IS_LOADING,
   COURSES_ADDED,
   COURSES_REMOVED,
-  COURSES_HAS_ERRORED,
+  COURSES_SET_ERRORED,
 } from "../reducers/ActionTypes";
 
 // ---------------------------------------------------
@@ -24,6 +24,6 @@ export const courses_removed = (payload) => ({
 });
 
 export const courses_error = (payload) => ({
-  type: COURSES_HAS_ERRORED,
+  type: COURSES_SET_ERRORED,
   payload,
 });

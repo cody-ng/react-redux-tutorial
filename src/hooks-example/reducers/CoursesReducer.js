@@ -2,7 +2,7 @@ import {
   COURSES_IS_LOADING,
   COURSES_ADDED,
   COURSES_REMOVED,
-  COURSES_HAS_ERRORED,
+  COURSES_SET_ERRORED,
 } from "./ActionTypes";
 
 const defaultState = {
@@ -21,7 +21,6 @@ const CoursesReducer = (state = defaultState, action) => {
       return {
         ...state,
         isLoading: payload,
-        error: null,
       };
 
     case COURSES_ADDED:
@@ -81,8 +80,8 @@ const CoursesReducer = (state = defaultState, action) => {
 
     //return state;
 
-    case COURSES_HAS_ERRORED:
-      console.log("COURSES_HAS_ERRORED");
+    case COURSES_SET_ERRORED:
+      console.log("COURSES_SET_ERRORED");
       return {
         ...state,
         error: payload,
